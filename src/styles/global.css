@@ -1,0 +1,25 @@
+@import '@fontsource/poppins';
+
+/* Variables */
+:root {
+  --icon-fontSize-sm: 1rem;
+  --icon-fontSize-md: 1.25rem;
+  --icon-fontSize-lg: 1.5rem;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--mui-palette-primary-main);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  width: 1290px;
+  margin: 0 auto;
+}
