@@ -6,7 +6,6 @@ import { Box, Collapse, Stack, Tooltip, Typography } from '@mui/material';
 import { isNavItemActive } from '@/lib/is-nav-item-active';
 import { navItems } from './config';
 import { navIcons } from './nav-icons';
-import type { NavItemConfig } from '@/types/nav';
 
 export function SidebarContent({
   pathname,
@@ -52,7 +51,7 @@ function renderNavItems({
   collapsed,
   onClose,
 }: {
-  items?: NavItemConfig[];
+  items?: any[];
   pathname: string;
   depth?: number;
   collapsed: boolean;
@@ -67,9 +66,9 @@ function renderNavItems({
   );
 }
 
-interface NavItemProps extends Omit<NavItemConfig, 'items'> {
+interface NavItemProps extends Omit<any, 'items'> {
   pathname: string;
-  items?: NavItemConfig[];
+  items?: any[];
   depth?: number;
   collapsed: boolean;
   onClose?: () => void;

@@ -9,7 +9,7 @@ interface RowActionMenuProps {
   open: boolean;
   anchorEl: HTMLElement | null;
   handleMenuClose: () => void;
-  handleOpen: () => void;
+  handleOpen?: () => void;
   href?: string;
   actions: Array<'Edit' | 'View' | string>;
   selectedRow?: any;
@@ -32,7 +32,7 @@ export default function RowActionMenu({
           <MenuItem
             key="edit"
             onClick={() => {
-              handleOpen();
+              handleOpen && handleOpen();
               handleMenuClose();
             }}
           >

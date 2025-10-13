@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Card, SxProps, useMediaQuery, useTheme } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { PaginationProps } from '@/types/company';
-import { TablePagination } from './pagination';
 
 export interface GenericTableProps<T> {
   rows: any;
@@ -16,7 +14,7 @@ export interface GenericTableProps<T> {
   showFilter?: boolean;
   showFilterTableHeight?: string;
   height?: string;
-  paginationRecords?: PaginationProps;
+  paginationRecords?: any;
   sx?: SxProps;
 }
 

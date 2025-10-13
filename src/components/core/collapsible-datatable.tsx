@@ -18,9 +18,7 @@ import {
 } from '@mui/material';
 import { SxProps } from '@mui/material/styles';
 import { CaretDown, CaretUp } from '@phosphor-icons/react';
-
 import { TablePagination } from './pagination';
-import { PaginationProps } from '@/types/company';
 
 export interface CollapsibleColumn<T> {
   id: keyof T | string;
@@ -47,7 +45,7 @@ export interface CollapsibleDataTableProps<T> {
   height?: string;
   showFilterTableHeight?: string;
   isShowPagination?: boolean;
-  paginationRecords?: PaginationProps;
+  paginationRecords?: any;
 }
 
 type Order = 'asc' | 'desc' | null;

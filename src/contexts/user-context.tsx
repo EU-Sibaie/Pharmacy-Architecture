@@ -20,7 +20,7 @@ export interface UserProviderProps {
 
 export function UserProvider({ children }: UserProviderProps): React.JSX.Element {
   const router = useRouter();
-  const [state, setState] = React.useState<{ user: User | null; error: string | null; isLoading: boolean }>({
+  const [state, setState] = React.useState<{ user: any | null; error: string | null; isLoading: boolean }>({
     user: null,
     error: null,
     isLoading: true,
