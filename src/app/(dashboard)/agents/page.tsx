@@ -1,14 +1,16 @@
 'use client';
 
 import * as React from 'react';
-import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { Box, IconButton, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { DotsThreeVertical, Info } from '@phosphor-icons/react';
 import { Plus as PlusIcon } from '@phosphor-icons/react/dist/ssr/Plus';
+
 import { GenericTable } from '@/components/core/genericTable';
 import RowActionMenu from '@/components/dashboard/row-action-menu';
 import ExtraPopover from '@/components/extra-detail/detail-popover';
 import CustomButton from '@/components/ui/customButton';
+
 import { agents } from './dummy';
-import { DotsThreeVertical, Info } from '@phosphor-icons/react';
 
 export default function Page() {
   const [rowAnchorEl, setRowAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -19,6 +21,10 @@ export default function Page() {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const openReason = Boolean(rowAnchorEl);
 
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   // const { data: contactsTableData, isLoading } = useQuery<ApiResponse>({
   //   queryKey: ['contacts', page, rowsPerPage],
   //   queryFn: async () => (await contactApi.getContacts({ page, rowsPerPage })).data as ApiResponse,
@@ -28,7 +34,6 @@ export default function Page() {
     setAnchorEl(event.currentTarget);
     setSelectedRow(row);
   };
-
 
   const handleMenuClose = () => {
     setAnchorEl(null);
@@ -47,7 +52,7 @@ export default function Page() {
       flex: 1,
       minWidth: 50,
       renderCell: (params: any) => params?.row?.call?.agent_id,
-      show: true,
+      show: !isMobile,
       order: 0,
     },
     {
@@ -56,7 +61,7 @@ export default function Page() {
       flex: 1,
       minWidth: 50,
       renderCell: (params: any) => params?.row?.call?.agent_name,
-      show: true,
+      show: !isMobile,
       order: 0,
     },
     {
@@ -83,7 +88,7 @@ export default function Page() {
       flex: 1,
       minWidth: 50,
       renderCell: (params: any) => params?.row?.call?.call_cost?.combined_cost,
-      show: true,
+      show: !isMobile,
       order: 0,
     },
     {
@@ -92,7 +97,7 @@ export default function Page() {
       flex: 1,
       minWidth: 50,
       renderCell: (params: any) => params?.row?.call?.call_status,
-      show: true,
+      show: !isMobile,
       order: 0,
     },
     {
